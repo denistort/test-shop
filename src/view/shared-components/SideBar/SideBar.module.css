@@ -1,0 +1,26 @@
+.sidebar {
+	min-width: 300px;
+	background-color: rgb(255, 255, 255);
+	min-height: 100vh;
+}
+.h {
+	font-size: 2.6rem;
+}
+.boxes_wrapper {
+	margin-bottom: 4rem;
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	height: 113px;
+	overflow: hidden;
+}
+
+.more {
+	height: auto;
+}
+
+.show_more_text {
+	font-size: 2.6rem;
+	text-align: center;
+	cursor: pointer;
+}

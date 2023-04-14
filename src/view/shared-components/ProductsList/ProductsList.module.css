@@ -1,0 +1,13 @@
+.list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 3rem;
+	width: 100%;
+	gap: 3rem;
+}
+
+.item {
+	background-color: rgb(207, 207, 207);
+	height: 350px;
+	border-radius: 20px;
+}
