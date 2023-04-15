@@ -1,4 +1,5 @@
 import { useProducStore } from '../../../store/store';
+import { ProductCard } from '../ProductCard/ProductCard';
 import c from './ProductsList.module.css';
 
 export const ProductsList = () => {
@@ -7,11 +8,7 @@ export const ProductsList = () => {
 	return (
 		<section className={c.list}>
 			{products.map((p) => (
-				<div
-					key={p.id}
-					style={{ backgroundPosition: 'center', backgroundSize: 'cover', backgroundImage: `url(${p.image})` }}
-					className={c.item}
-				></div>
+				<ProductCard key={p.id} image={p.image} id={p.id} product={p} />
 			))}
 		</section>
 	);

@@ -21,6 +21,8 @@ export const useProducStore = create((set) => ({
 export const useShoppingCartStore = create((set) => ({
 	shoppingCart: [],
 	addProduct: (product) => set((state) => ({ shoppingCart: [...state.shoppingCart, product] })),
+	removeProduct: (id) =>
+		set((state) => ({ shoppingCart: state.shoppingCart.filter((p) => p.id !== id) })),
 }));
 
 export const useBrandsStore = create((set) => ({
