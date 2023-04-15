@@ -1,15 +1,13 @@
-import { useState } from 'react';
 import c from './Checkbox.module.css';
 
-export const CheckBox = (props) => {
-	const [checked, setChecked] = useState(false);
+export const CheckBox = ({ title, onChange, checked }) => {
 	const onClickHandler = () => {
-		setChecked(!checked);
+		onChange(!checked);
 	};
 
 	const onKeyUpHandler = (e) => {
 		if (e.key === 'Enter') {
-			setChecked(!checked);
+			onChange(!checked);
 		}
 	};
 	return (
@@ -27,7 +25,7 @@ export const CheckBox = (props) => {
 					</svg>
 				)}
 			</div>
-			<div>{props.title}</div>
+			<div>{title}</div>
 		</div>
 	);
 };

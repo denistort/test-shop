@@ -7,7 +7,11 @@ export const ProductsList = () => {
 	return (
 		<section className={c.list}>
 			{products.map((p) => (
-				<div style={{ backgroundImage: `url(${p.image})`, objectFit: 'cover', maxWidth: '100%'}} className={c.item}></div>
+				<div
+					key={p.id}
+					style={{ backgroundImage: `url(${p.image})`, objectFit: 'cover', maxWidth: '100%' }}
+					className={c.item}
+				></div>
 			))}
 		</section>
 	);
