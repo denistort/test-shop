@@ -9,7 +9,7 @@ export const ProductsList = () => {
 			{products.map((p) => (
 				<div
 					key={p.id}
-					style={{ backgroundImage: `url(${p.image})`, objectFit: 'cover', maxWidth: '100%' }}
+					style={{ backgroundPosition: 'center', backgroundSize: 'cover', backgroundImage: `url(${p.image})` }}
 					className={c.item}
 				></div>
 			))}
