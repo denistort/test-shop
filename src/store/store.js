@@ -1,4 +1,6 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
+
 import products from '../static-data/products.json';
 import brands from '../static-data/brands.json';
 import { api } from '../api/api';
@@ -26,14 +28,22 @@ export const useProducStore = create((set) => ({
 	},
 }));
 
-export const useShoppingCartStore = create((set) => ({
-	// data
-	shoppingCart: [],
-	// method
-	addProduct: (product) => set((state) => ({ shoppingCart: [...state.shoppingCart, product] })),
-	removeProduct: (id) =>
-		set((state) => ({ shoppingCart: state.shoppingCart.filter((p) => p.id !== id) })),
-}));
+export const useShoppingCartStore = create(
+	persist(
+		(set, get) => ({
+			// data
+			shoppingCart: [],
+			// method
+			addProduct: (product) => set((state) => ({ shoppingCart: [...state.shoppingCart, product] })),
+			removeProduct: (id) =>
+				set({ shoppingCart: get().shoppingCart.filter((p) => p.id !== id) }),
+		}),
+		{
+			name: 'shopping-cart',
+			storage: createJSONStorage(() => localStorage)
+		}
+	)
+);
 
 export const useBrandsStore = create((set) => ({
 	brands,
