@@ -1,9 +1,11 @@
 import { create } from 'zustand';
 import products from '../static-data/products.json';
 import brands from '../static-data/brands.json';
+import { api } from '../api/api';
 
 export const useProducStore = create((set) => ({
-	products: products,
+	products: null,
+	isLoading: false,
 	sort: ({ brandsFilter, sortByPrice }) =>
 		set((state) => ({
 			...state,
@@ -16,10 +18,18 @@ export const useProducStore = create((set) => ({
 				),
 		})),
 	resetSort: () => set({ products }),
+	fetchProducts: async () => {
+		set((state) => ({ ...state, isLoading: true }));
+		const products = await api.getProducts();
+		set((state) => ({ ...state, products }));
+		set((state) => ({ ...state, isLoading: false }));
+	},
 }));
 
 export const useShoppingCartStore = create((set) => ({
+	// data
 	shoppingCart: [],
+	// method
 	addProduct: (product) => set((state) => ({ shoppingCart: [...state.shoppingCart, product] })),
 	removeProduct: (id) =>
 		set((state) => ({ shoppingCart: state.shoppingCart.filter((p) => p.id !== id) })),

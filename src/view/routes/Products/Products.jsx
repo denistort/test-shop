@@ -1,15 +1,16 @@
-import { Header } from '../../shared-components/Header/Header';
 import { ProductsList } from '../../shared-components/ProductsList/ProductsList';
 import { SideBar } from '../../shared-components/SideBar/SideBar';
 import { Container } from '../../shared-components/ui';
+import { useProducStore } from '../../../store/store';
 
 const Products = () => {
+	const { products, isLoading } = useProducStore();
+
 	return (
 		<>
-			<Header></Header>
 			<Container>
 				<SideBar></SideBar>
-				<ProductsList></ProductsList>
+				{ products ? <ProductsList products={products}></ProductsList>: 'loading...'}
 			</Container>
 		</>
 	);

@@ -3,6 +3,7 @@ import c from './ProductCard.module.css';
 
 export const ProductCard = (props) => {
 	const { shoppingCart, addProduct, removeProduct } = useShoppingCartStore();
+	
 	const onClickHandler = () => {
 		if (shoppingCart.find((p) => p.id === props.id)) {
 			removeProduct(props.id);

@@ -1,16 +1,22 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Products from '../routes/Products/Products';
-import ShoppingCart from '../routes/ShoppingCart/ShoppingCart';
-import ProductDetail from '../routes/ProductDetail/ProductDetail';
+import { Products, ShoppingCart, ProductDetail } from '../routes';
+import { HeaderLayout } from '../shared-components/HeaderLayout';
+import { withHeader } from '../shared-components/withHeader';
+
+const ShoppingCartWithHeader = withHeader(ShoppingCart);
 
 export const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Products />,
+		element: (
+			<HeaderLayout>
+				<Products />,
+			</HeaderLayout>
+		),
 	},
 	{
-		path: '/shopping-cart',
-		element: <ShoppingCart />,
+		path: '/shoppingCart',
+		element: <ShoppingCartWithHeader />,
 	},
 	{
 		path: '/product/:id',

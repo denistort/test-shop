@@ -15,11 +15,14 @@ const sortTypes = [
 	{ id: 2, title: 'сначала дешевые' },
 ];
 export const SideBar = () => {
+	// Stores
 	const brands = useBrandsStore((state) => state.brands);
 	const sort = useProducStore((state) => state.sort);
+	// 
 	const [moreBrands, setMoreBrands] = useState(false);
 	const [brandsFilter, setBrandsFilter] = useState(initialBrandsFilterState);
 	const [sortByPrice, setSortByPrice] = useState(1);
+	//
 	console.log(brands);
 	return (
 		<aside className={c.sidebar}>

@@ -1,10 +1,7 @@
-import { useProducStore } from '../../../store/store';
 import { ProductCard } from '../ProductCard/ProductCard';
 import c from './ProductsList.module.css';
 
-export const ProductsList = () => {
-	const products = useProducStore((state) => state.products);
-
+export const ProductsList = ({ products }) => {
 	return (
 		<section className={c.list}>
 			{products.map((p) => (

@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import c from './Select.module.css';
+
 export const Select = ({ onChange, variants }) => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selected, setSelected] = useState(variants.at(0).title);
 	const [width, setWidth] = useState(0);
+	// document.querySelector('.dwewe)
 	const ref = useRef();
 
 	useEffect(() => {

@@ -24,3 +24,9 @@
 	text-align: center;
 	cursor: pointer;
 }
+
+@media (max-width: var(--media-1024)) {
+	.sidebar {
+		display: none;
+	}
+}

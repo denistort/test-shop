@@ -10,6 +10,10 @@ body {
 :root {
 	--primary-color: #2fb3ce;
 	--header-background: #D7D9CE;
+
+	//media
+	--media-1200: 75em;
+	--media-1024: 64em;
 }
 
 button {
